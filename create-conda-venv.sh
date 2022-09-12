@@ -1,14 +1,7 @@
 #!/bin/bash zsh
 
 # Ask for the current version of python.
-while true; do
-    read "?Would you like to specify the python version? If no, the latest version will be used. [Y/N]" yn
-    case $yn in
-        [Yy]* ) read "?Python version: " python_version; break;;
-        [Nn]* ) break;;
-        * ) echo "Must answer yes or no.";;
-    esac
-done
+ read "?Define Python version (newest will be used by default): " python_version;
 
 # Get the current folder name.
 # This will be used to create the name of the environment.
