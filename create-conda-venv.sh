@@ -16,5 +16,10 @@ conda deactivate && conda activate $current_folder_name
 # Install the requirements into the environment if they exist.
 if [ -f requirements.txt ];
 then
+	if grep -q psycopg2 "requirements.txt"; then
+		# There are common issues when installing psycopg2 with pip.
+		echo "Installing psycopg2 separately..."
+		conda install psycopg2
+	fi
     python -m pip install -r requirements.txt
 fi
